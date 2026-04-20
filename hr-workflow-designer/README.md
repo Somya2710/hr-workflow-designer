@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+📊 HR Workflow Designer
+A high-performance, visually polished workflow automation builder built with React Flow and Zustand. This tool allows users to design complex HR processes (onboarding, approvals, task assignments) through an intuitive drag-and-drop interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🏗 Architecture
+The application follows a Decoupled State Management pattern to ensure the UI remains snappy even with hundreds of nodes.
 
-Currently, two official plugins are available:
+Frontend Framework: React 18 with TypeScript for type safety.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Flow Engine: @xyflow/react (formerly React Flow) for the node-based canvas.
 
-## React Compiler
+State Management: Zustand for a centralized, high-performance store that handles node positions, data updates, and selection states.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Styling: Modern CSS3 with a focus on Visual Hierarchy, utilizing soft shadows, rounded "card" aesthetics, and a dark-themed simulation console.
 
-## Expanding the ESLint configuration
+🚀 How to Run
+Follow these steps to get the designer running locally:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clone the Repository:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Bash
+git clone https://github.com/your-username/hr-workflow-designer.git
+cd hr-workflow-designer
+Install Dependencies:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Bash
+npm install
+Start Development Server:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bash
+npm run dev
+Build for Production:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Bash
+npm run build
+🧠 Design Decisions
+Atomic Data Updates: Instead of re-rendering the entire canvas on every keystroke, we implemented a targeted updateNodeData function in Zustand. This ensures that typing in the configuration panel is lag-free.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Custom Node Components: We moved away from default React Flow nodes to create custom "Card" styled nodes. This allowed for better branding and the inclusion of status badges (e.g., "HRBP", "Manager").
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Contextual Configuration Sidebar: To maximize canvas space, the configuration panel only appears when a node is selected, providing a focused "Context-Aware" editing experience.
+
+Simulated Backend: We built a mock API layer using async/await and custom delay logic to demonstrate how the frontend would interact with a real workflow execution engine.
+
+✅ Completed vs. 🛠 Future Roadmap
+What's Completed
+Drag & Drop: Fully functional sidebar with draggable node types.
+
+Dynamic Configuration: Live-editing of node titles, roles, and scoring thresholds.
+
+Automated Validation: Real-time checking for a "Start Node" before simulation.
+
+Simulation Sandbox: A dark-themed execution log with timestamps and status indicators.
+
+Responsive Canvas: Professional grid background with zoom/pan controls.
+
+With More Time, I Would Add...
+Persistence Layer: Integration with Supabase or Firebase to save and load workflow JSON schemas.
+
+Undo/Redo History: Implementation of temporal state management within Zustand.
+
+Advanced Logic Nodes: "Branching" nodes that split the workflow path based on Boolean conditions (e.g., If Salary > 50k).
+
+Export to Code: A feature to export the visual graph into a YAML or JSON configuration for direct use in CI/CD pipelines.
+
+Collaboration: Real-time multi-user editing using WebSockets or Yjs.
