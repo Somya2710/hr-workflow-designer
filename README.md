@@ -120,12 +120,4 @@ http://localhost:5173
 
 ---
 
-## 📌 Conclusion
 
-This project demonstrates the ability to build a **scalable, modular frontend system** with complex state management, dynamic forms, and interactive workflows using modern React practices.
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and feel free to explore or contribute!
