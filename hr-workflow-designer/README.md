@@ -1,65 +1,122 @@
-📊 HR Workflow Designer
-A high-performance, visually polished workflow automation builder built with React Flow and Zustand. This tool allows users to design complex HR processes (onboarding, approvals, task assignments) through an intuitive drag-and-drop interface.
+# 🚀 HR Workflow Designer
 
-🏗 Architecture
-The application follows a Decoupled State Management pattern to ensure the UI remains snappy even with hundreds of nodes.
+A modern, interactive web application that enables HR teams to visually design, configure, and simulate workflows such as onboarding, approvals, and automated processes using a drag-and-drop interface.
 
-Frontend Framework: React 18 with TypeScript for type safety.
+---
 
-Flow Engine: @xyflow/react (formerly React Flow) for the node-based canvas.
+## 🎯 Project Overview
 
-State Management: Zustand for a centralized, high-performance store that handles node positions, data updates, and selection states.
+The **HR Workflow Designer** allows users to:
 
-Styling: Modern CSS3 with a focus on Visual Hierarchy, utilizing soft shadows, rounded "card" aesthetics, and a dark-themed simulation console.
+* 🧩 Build workflows using a drag-and-drop canvas
+* 🔗 Connect nodes to define process flow
+* 📝 Configure each step using dynamic forms
+* ⚙️ Integrate automated actions via mock APIs
+* 🧪 Simulate workflows and view execution steps
 
-🚀 How to Run
-Follow these steps to get the designer running locally:
+This project focuses on **frontend architecture, scalability, and interactive UI design**.
 
-Clone the Repository:
+---
 
-Bash
+## 🛠️ Tech Stack Used
+
+* **Framework:** React (Vite / Next.js)
+* **Flow Engine:** React Flow
+* **Language:** TypeScript / JavaScript
+* **Styling:** Tailwind CSS / CSS
+* **State Management:** React Hooks / Context API
+* **API:** Mock API (JSON Server / MSW)
+
+---
+
+## 🏗️ Architecture
+
+The application is designed using a **modular and scalable structure**:
+
+* 📦 **Components Layer**
+
+  * Reusable UI components (Sidebar, Canvas, Panels)
+
+* 🔄 **Workflow Engine**
+
+  * Manages nodes and edges using React Flow
+
+* 🧠 **State Management**
+
+  * Centralized workflow state using hooks/context
+
+* 📝 **Dynamic Form System**
+
+  * Node-based configurable forms
+
+* 🔌 **API Layer**
+
+  * Abstracted services for automation and simulation
+
+* 🧰 **Utilities**
+
+  * Workflow validation and serialization
+
+---
+
+## ▶️ How to Run
+
+```bash
 git clone https://github.com/your-username/hr-workflow-designer.git
 cd hr-workflow-designer
-Install Dependencies:
-
-Bash
 npm install
-Start Development Server:
-
-Bash
 npm run dev
-Build for Production:
+```
 
-Bash
-npm run build
-🧠 Design Decisions
-Atomic Data Updates: Instead of re-rendering the entire canvas on every keystroke, we implemented a targeted updateNodeData function in Zustand. This ensures that typing in the configuration panel is lag-free.
+Open in browser:
 
-Custom Node Components: We moved away from default React Flow nodes to create custom "Card" styled nodes. This allowed for better branding and the inclusion of status badges (e.g., "HRBP", "Manager").
+```
+http://localhost:5173
+```
 
-Contextual Configuration Sidebar: To maximize canvas space, the configuration panel only appears when a node is selected, providing a focused "Context-Aware" editing experience.
+---
 
-Simulated Backend: We built a mock API layer using async/await and custom delay logic to demonstrate how the frontend would interact with a real workflow execution engine.
+## 🎨 Features
 
-✅ Completed vs. 🛠 Future Roadmap
-What's Completed
-Drag & Drop: Fully functional sidebar with draggable node types.
+* ✅ Drag-and-drop workflow canvas
+* ✅ Multiple custom node types
+* ✅ Node editing with dynamic forms
+* ✅ Edge connections between nodes
+* ✅ Mock API integration
+* ✅ Workflow simulation panel
 
-Dynamic Configuration: Live-editing of node titles, roles, and scoring thresholds.
+---
 
-Automated Validation: Real-time checking for a "Start Node" before simulation.
+## 🎯 Design Decisions
 
-Simulation Sandbox: A dark-themed execution log with timestamps and status indicators.
+* ⚡ **React Flow** for efficient node-based UI
+* 🧱 **Component-based design** for scalability
+* 🔄 **Dynamic forms** for flexibility across node types
+* 🔌 **Mock APIs** to simulate real-world backend interaction
+* 🧩 **Separation of concerns** for maintainability
 
-Responsive Canvas: Professional grid background with zoom/pan controls.
+---
 
-With More Time, I Would Add...
-Persistence Layer: Integration with Supabase or Firebase to save and load workflow JSON schemas.
+## ✅ What Has Been Completed
 
-Undo/Redo History: Implementation of temporal state management within Zustand.
+* Workflow canvas with drag-and-drop support
+* Custom nodes (Start, Task, Approval, Automated, End)
+* Node configuration panel
+* Mock API integration
+* Workflow simulation with step-by-step output
+* Basic validation for workflow structure
 
-Advanced Logic Nodes: "Branching" nodes that split the workflow path based on Boolean conditions (e.g., If Salary > 50k).
+---
 
-Export to Code: A feature to export the visual graph into a YAML or JSON configuration for direct use in CI/CD pipelines.
+## 🚧 What I Would Add With More Time
 
-Collaboration: Real-time multi-user editing using WebSockets or Yjs.
+* 🔁 Undo/Redo functionality
+* 📤 Export/Import workflow as JSON
+* 🗺️ Mini-map and zoom controls
+* ⚠️ Advanced validation with visual error indicators
+* 🤖 Auto-layout for nodes
+* 💾 Backend integration for persistence
+* 🎨 Enhanced UI/UX and animations
+
+---
+
